@@ -46,14 +46,13 @@ A solução é composta por:
 ### 📂 Estrutura do Repositório
 ```
 ├── datasets/
-│ ├── raw/ # Dados brutos (arquivos originais)
-│ ├── refined/ # Dados tratados e padronizados
-│ └── examples/ # Amostras para testes e documentação
+│ ├── crm/
+│ ├── erp/ 
 │
 ├── docs/
-│ ├── arquitetura/ # Diagramas (como o da arquitetura em camadas)
-│ ├── especificacoes/ # Regras de negócio, glossário, dicionário de dados
-│ └── modelos/ # Schemas, scripts SQL, ADRs
+│ ├── arquitetura/ 
+│ ├── especificacoes/ 
+│ └── modelos/
 │
 ├── src/
 │ ├── bronze/ # Scripts de ingestão (EL)
@@ -61,9 +60,9 @@ A solução é composta por:
 │ └── gold/ # Views e modelos analíticos
 │
 ├── tests/
-│ ├── qualidade/ # Validações de dados, testes de integridade
-│ ├── pipelines/ # Testes dos processos ELT
-│ └── unit/ # Testes unitários de funções, validações e regras
+│ ├── qualidade/
+│ ├── pipelines/
+│ └── unit/ 
 │
 └── README.md # Documentação geral do projeto
 ```
