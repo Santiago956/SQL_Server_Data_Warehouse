@@ -1,5 +1,3 @@
-EXEC bronze.load_bronze
-
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @total_start DATETIME, @total_end DATETIME;
@@ -44,7 +42,6 @@ BEGIN
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_prd_info carregada';
 		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze.crm_sales_details;
