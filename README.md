@@ -56,8 +56,8 @@ A solução é composta por:
 │
 ├── src/
 │ ├── bronze/ # Scripts de ingestão (EL)
-│ ├── silver/ # Scripts de tratamento e refino
-│ └── gold/ # Views e modelos analíticos
+│ ├── prata/ # Scripts de tratamento e refino
+│ └── ouro/ # Views e modelos analíticos
 │
 ├── tests/
 │ ├── qualidade/
