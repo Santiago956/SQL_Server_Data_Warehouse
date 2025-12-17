@@ -57,8 +57,7 @@ BEGIN
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_sales_details carregada';
 		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
-		PRINT '>> --------------------
-		';
+		PRINT '>> --------------------';
 
 		PRINT '--------------------------';
 		PRINT 'Carregando tabelas do ERP'

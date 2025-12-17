@@ -20,7 +20,6 @@ Desenvolver um data warehouse moderno utilizando SQL Server para consolidar dado
 
 - Providenciar documentação clara do modelo de dados para times de analitycs e stakeholders.
 
-
 ## :hammer: Implementação
 
 ### 📐 Arquitetura da Solução
@@ -31,7 +30,7 @@ A solução é composta por:
 
 - **Fontes**: CRM, ERP e arquivos CSV
 - **Data Warehouse**: SQL Server
-  
+
   - **Camadas**: Bronze, Prata e Ouro
 
 - **Consumidores**: Power BI, consultas SQL e Machine Learning
@@ -44,14 +43,15 @@ A solução é composta por:
 - Notion
 
 ### 📂 Estrutura do Repositório
+
 ```
 ├── datasets/
 │ ├── crm/
-│ ├── erp/ 
+│ ├── erp/
 │
 ├── docs/
-│ ├── arquitetura/ 
-│ ├── especificacoes/ 
+│ ├── arquitetura/
+│ ├── especificacoes/
 │ └── modelos/
 │
 ├── src/
@@ -62,10 +62,11 @@ A solução é composta por:
 ├── tests/
 │ ├── qualidade/
 │ ├── pipelines/
-│ └── unit/ 
+│ └── unit/
 │
 └── README.md # Documentação geral do projeto
 ```
 
 ## 🧾 Licença
+
 Projeto disponibilizado sob licença MIT.
