@@ -24,7 +24,7 @@ Desenvolver um data warehouse moderno utilizando SQL Server para consolidar dado
 
 ### 📐 Arquitetura da Solução
 
-<img width="1724" height="1036" alt="diagrama_de_arquitetura drawio" src="https://github.com/user-attachments/assets/3b59fa35-27da-4a7b-9ae4-e592782c170c" />
+![Diagrama de Arquitetura](docs/diagrama_de_arquitetura.png)
 
 A solução é composta por:
 
@@ -75,6 +75,19 @@ README.md
     ├── teste_qualidade_ouro.sql
     └── teste_qualidade_prata.sql
 ```
+
+## 📋 Próximos Passos
+
+### Construção de Relatório Power BI
+
+O próximo passo envolve a criação de um relatório interativo no Power BI que utilize o modelo de dados consolidado na camada Ouro do Data Warehouse. Este relatório permitirá:
+
+- Visualização de métricas de vendas em tempo real
+- Análise de performance por região e período
+- Segmentação de clientes e produtos
+- Dashboards executivos para tomada de decisão estratégica
+
+A integração com SQL Server será realizada através de conexões diretas às tabelas da camada Ouro, garantindo que os dados apresentados estejam sempre atualizados e alinhados com a fonte única de verdade.
 
 ## 🧾 Licença
 
