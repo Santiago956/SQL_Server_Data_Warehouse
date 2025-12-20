@@ -45,26 +45,35 @@ A solução é composta por:
 ### 📂 Estrutura do Repositório
 
 ```
+LICENSE
+README.md
 ├── datasets/
-│ ├── crm/
-│ ├── erp/
-│
+│   ├── source_crm/
+│   │   ├── cust_info.csv
+│   │   ├── prd_info.csv
+│   │   └── sales_details.csv
+│   └── source_erp/
+│       ├── CUST_AZ12.csv
+│       ├── LOC_A101.csv
+│       └── PX_CAT_G1V2.csv
 ├── docs/
-│ ├── arquitetura/
-│ ├── especificacoes/
-│ └── modelos/
-│
+│   ├── diagrama_data_flow.png
+│   ├── diagrama_de_arquitetura.png
+│   ├── diagrama_de_integracao.png
+│   └── diagrama_modelo_logico.png
 ├── src/
-│ ├── bronze/ # Scripts de ingestão (EL)
-│ ├── prata/ # Scripts de tratamento e refino
-│ └── ouro/ # Views e modelos analíticos
-│
-├── tests/
-│ ├── qualidade/
-│ ├── pipelines/
-│ └── unit/
-│
-└── README.md # Documentação geral do projeto
+│   ├── init_database.sql
+│   ├── bronze/
+│   │   ├── ddl_bronze.sql
+│   │   └── load_bronze.sql
+│   ├── ouro/
+│   │   └── ddl_ouro.sql
+│   └── prata/
+│       ├── ddl_prata.sql
+│       └── load_prata.sql
+└── tests/
+    ├── teste_qualidade_ouro.sql
+    └── teste_qualidade_prata.sql
 ```
 
 ## 🧾 Licença
