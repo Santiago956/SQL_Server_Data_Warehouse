@@ -1,7 +1,7 @@
 
 /*
 ===============================================================================
-Verificações de Qualidade
+Verificações de qualidade na camada Prata
 ===============================================================================
 Propósito do Script:
     Este script executa várias verificações de qualidade para consistência de dados, precisão,
@@ -11,15 +11,10 @@ Propósito do Script:
     - Padronização e consistência de dados.
     - Intervalos de datas inválidos e ordens.
     - Consistência de dados entre campos relacionados.
-
-Notas de Uso:
-    - Execute essas verificações após o carregamento da Camada Prata.
 ===============================================================================
 */
 
--- ====================================================================
--- Verificando 'prata.crm_cust_info'
--- ====================================================================
+
 -- Verificar NULLs ou Duplicatas na Chave Primária
 -- Expectativa: Nenhum Resultado
 SELECT 
@@ -41,9 +36,7 @@ SELECT DISTINCT
     cst_marital_status 
 FROM prata.crm_cust_info;
 
--- ====================================================================
--- Verificando 'prata.crm_prd_info'
--- ====================================================================
+
 -- Verificar NULLs ou Duplicatas na Chave Primária
 -- Expectativa: Nenhum Resultado
 SELECT 
@@ -79,9 +72,7 @@ SELECT
 FROM prata.crm_prd_info
 WHERE prd_end_dt < prd_start_dt;
 
--- ====================================================================
--- Verificando 'prata.crm_sales_details'
--- ====================================================================
+
 -- Verificar Datas Inválidas
 -- Expectativa: Nenhuma Data Inválida
 SELECT 
@@ -116,9 +107,7 @@ WHERE sls_sales != sls_quantity * sls_price
    OR sls_price <= 0
 ORDER BY sls_sales, sls_quantity, sls_price;
 
--- ====================================================================
--- Verificando 'prata.erp_cust_az12'
--- ====================================================================
+
 -- Identificar Datas Fora do Intervalo
 -- Expectativa: Datas de Nascimento entre 1924-01-01 e Hoje
 SELECT DISTINCT 
@@ -132,18 +121,14 @@ SELECT DISTINCT
     gen 
 FROM prata.erp_cust_az12;
 
--- ====================================================================
--- Verificando 'prata.erp_loc_a101'
--- ====================================================================
+
 -- Padronização e Consistência de Dados
 SELECT DISTINCT 
     cntry 
 FROM prata.erp_loc_a101
 ORDER BY cntry;
 
--- ====================================================================
--- Verificando 'prata.erp_px_cat_g1v2'
--- ====================================================================
+
 -- Verificar Espaços Indesejados
 -- Expectativa: Nenhum Resultado
 SELECT 
