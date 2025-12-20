@@ -1,3 +1,19 @@
+/*
+
+------------------------------------------
+Procedure: Carga de dados na camada Bronze
+------------------------------------------
+
+	Essa procedure realiza a carga dos dados brutos na camada Bronze do Data Warehouse.
+	Os dados serÃ£o carregados a partir de arquivos CSV localizados na pasta datasets/source
+	Essa procedure Ã© para carga total e trunca as tabelas antes de carregar os dados.
+
+	AtenÃ§Ã£o: Os caminhos dos arquivos CSV devem ser ajustados conforme o ambiente de execuÃ§Ã£o.
+
+*/
+
+
+
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @total_start DATETIME, @total_end DATETIME;
@@ -25,7 +41,7 @@ BEGIN
 		);
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_cust_info carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
@@ -41,7 +57,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_prd_info carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze.crm_sales_details;
@@ -56,7 +72,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_sales_details carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		PRINT '--------------------------';
@@ -76,7 +92,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_cust_az12 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 
@@ -93,7 +109,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_loc_a101 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 
@@ -111,14 +127,14 @@ BEGIN
 		
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_px_cat_g1v2 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		SET @total_end = GETDATE();
 		PRINT '==========================';
 		PRINT 'Camada Bronze carregada';
 		PRINT '==========================';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @total_start, @total_end) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @total_start, @total_end) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 	END TRY

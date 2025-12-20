@@ -35,6 +35,8 @@ A solução é composta por:
 
 - **Consumidores**: Power BI, consultas SQL e Machine Learning
 
+Na pasta 'docs' estão contidas mais ilustrações da arquitetura do projeto e o fluxo de dados.
+
 ### 🚀 Tecnologias Utilizadas
 
 - SQL Server

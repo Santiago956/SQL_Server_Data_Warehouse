@@ -1,3 +1,19 @@
+/*
+
+------------------------------------------
+Procedure: Limpeza e carga de dados na camada Prata
+------------------------------------------
+
+	Essa procedure realiza a carga dos dados tratados na camada Prata do Data Warehouse.
+	Os dados serÃ£o carregados a partir das tabelas da camada Bronze.
+	Essa procedure Ã© para carga total e trunca as tabelas antes de carregar os dados.
+
+	
+*/
+
+
+
+
 CREATE OR ALTER PROCEDURE prata.load_prata AS
 BEGIN
 	DECLARE @start_time DATETIME, @end_time DATETIME, @total_start DATETIME, @total_end DATETIME;
@@ -52,7 +68,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_cust_info carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		SET @start_time = GETDATE();
@@ -89,7 +105,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_prd_info carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 
 		SET @start_time = GETDATE();
 		PRINT '--- Trucando tabela prata.crm_sales_details';
@@ -120,7 +136,7 @@ BEGIN
 			CASE WHEN sls_ship_dt = 0 OR LEN(sls_ship_dt) != 8 THEN NULL
 				ELSE CAST(CAST(sls_ship_dt AS VARCHAR) AS DATE)
 			END AS sls_ship_dt,
-			CASE WHEN sls_due_dt = 0 OR LEN(sls_due_dt) != 8 THEN NULL  --- Aplicando lógica de negócio para resolução de valores nulos e/ou negativos/incoerentes
+			CASE WHEN sls_due_dt = 0 OR LEN(sls_due_dt) != 8 THEN NULL  --- Aplicando lï¿½gica de negï¿½cio para resoluï¿½ï¿½o de valores nulos e/ou negativos/incoerentes
 				ELSE CAST(CAST(sls_due_dt AS VARCHAR) AS DATE)
 			END AS sls_due_dt,
 			CASE WHEN sls_sales IS NULL OR sls_sales <= 0 OR sls_sales != sls_quantity * ABS(sls_price) THEN sls_quantity * ABS(sls_price)
@@ -135,7 +151,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela crm_sales_details carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		PRINT '--------------------------';
@@ -170,7 +186,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_cust_az12 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 
@@ -198,7 +214,7 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_loc_a101 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 
@@ -227,14 +243,14 @@ BEGIN
 
 		SET @end_time = GETDATE();
 		PRINT '>> Tabela erp_px_cat_g1v2 carregada';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 
 		SET @total_end = GETDATE();
 		PRINT '==========================';
 		PRINT 'Camada Prata carregada';
 		PRINT '==========================';
-		PRINT '>> Duração da carga:' + CAST(DATEDIFF(second, @total_start, @total_end) AS NVARCHAR) + ' seconds';
+		PRINT '>> Duraï¿½ï¿½o da carga:' + CAST(DATEDIFF(second, @total_start, @total_end) AS NVARCHAR) + ' seconds';
 		PRINT '>> --------------------';
 	END TRY
 	BEGIN CATCH

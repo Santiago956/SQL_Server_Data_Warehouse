@@ -1,3 +1,18 @@
+/*
+
+------------------------------------------
+Script DDL: Criar tabelas da camada prata
+------------------------------------------
+
+	Esse script cria as tabelas da camada prata do data warehouse.
+
+
+	Atenção: Esse script apaga as tabelas se elas já existirem. Use com cautela.
+
+*/
+
+
+
 IF OBJECT_ID ('prata.crm_cust_info', 'U') IS NOT NULL
 	DROP TABLE prata.crm_cust_info;
 
